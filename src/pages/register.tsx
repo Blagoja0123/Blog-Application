@@ -23,6 +23,8 @@ export const Register = () =>{
         <h1>Register</h1>
         <input type='text' placeholder="username" {...register('username')}/>
         <br/>
+        <input type='text' placeholder="email" {...register('email')}/>
+        <br/>
         <input type='text' placeholder="password" {...register('password')}/>
         <br/>
         <button type='submit'>Register</button>
