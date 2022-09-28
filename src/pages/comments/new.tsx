@@ -12,12 +12,13 @@ export const MakeComment = ({postId}:{
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            {error && error.message}
-            <input type='text' placeholder="Leave a comment" {...register('body')}/>
-            <br/>
-            <button type='submit'>Post</button>
-        </form>
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex-col space-x-2">
+                {error && error.message}
+                <input type='text' placeholder="Leave a comment" {...register('body')} className=" bg-slate-400 placeholder-black rounded-md py-3 pl-2 pr-96"/>
+                <button className=" bg-slate-800 hover:bg-slate-900 p-2 rounded-md px-4 py-3" type='submit'>Post</button>
+            </form>
+        </div>
     )
 }
 

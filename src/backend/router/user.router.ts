@@ -49,7 +49,7 @@ export const userRouter = createRouter()
                     email,
                 },
             })
-            console.log(user);
+
             if(!user){
                 throw new trpc.TRPCError({
                     code: 'NOT_FOUND',
@@ -68,13 +68,13 @@ export const userRouter = createRouter()
                         },
                     },
                 })
-                
+                console.log(`yasss ${user.email}`);
                 await sendLoginEmail({
                     token: encode(`${token.id}:${user.email}`),
                     url: baseUrl,
                     email: user.email,
                 })
-    
+
                 return true;
             }else{
                 throw new trpc.TRPCError({

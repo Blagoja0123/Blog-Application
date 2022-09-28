@@ -2,22 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 html,
+
 body {
-  background-color:rgba(57, 57, 110, 0.722);
+  background-color: rgb(51 65 85);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
 
 @media (prefers-color-scheme: dark) {
   html {

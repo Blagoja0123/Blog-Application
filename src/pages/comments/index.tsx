@@ -12,10 +12,10 @@ function Comments({postId}:{
     }
 
     return (
-        <div>
-            {data.map((comment: any) =>{
+        <div className=" space-y-2">
+            {data?.map((comment: any) =>{
                 return(
-                    <article key={comment.id}>
+                    <article className=" bg-slate-400 pl-3 rounded-md py-3 text-black" key={comment.id}>
                         <p>{comment.body}</p>
                     </article>
                 )

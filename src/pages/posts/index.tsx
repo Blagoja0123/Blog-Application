@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NewPost from "../../components/NewPost";
 import { trpc } from "../../utils/trpc";
 
 export const Posts = () =>{
@@ -19,6 +20,7 @@ export const Posts = () =>{
                     </article>
                 )
             })}
+            <NewPost/>
         </div>
     )
 }  

@@ -18,6 +18,8 @@ model User {
   comment    Comments[]
   createdAt  DateTime     @default(now())
   LoginToken LoginToken[]
+
+  @@unique([id, username])
 }
 
 model LoginToken {
@@ -32,18 +34,20 @@ model Comments {
   id        Int      @id @default(autoincrement())
   body      String
   createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId, userName], references: [id, username])
   userId    Int
+  userName  String
   post      Post     @relation(fields: [postId], references: [id])
   postId    Int
 }
 
 model Post {
-  id        Int       @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   title     String
   body      String
-  createdAt DateTime  @default(now())
-  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime   @default(now())
+  user      User       @relation(fields: [userId, userName], references: [id, username])
   userId    Int
+  userName  String
   comment   Comments[]
 }
