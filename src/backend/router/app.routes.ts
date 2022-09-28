@@ -8,6 +8,6 @@ import { commentRouter } from './comment.routes';
 export const appRouter = createRouter()
     .merge('users.', userRouter)
     .merge('posts.', postRouter)
-    .merge('comment.', commentRouter)
+    // .merge('comment.', commentRouter)
 
 export type AppRouter = typeof appRouter;

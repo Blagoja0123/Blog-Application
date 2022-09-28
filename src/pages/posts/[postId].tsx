@@ -36,7 +36,7 @@ export const SinglePost = () =>{
                     {/* add author through new relation */}
                     <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
                     <div className=" h-80 overflow-y-scroll overflow-x-hidden">
-                        <div>   
+                        {/* <div>   
                             <br/>
                             <p>Leave a comment</p>
                             <MakeComment postId = {postId}/>
@@ -45,7 +45,7 @@ export const SinglePost = () =>{
                             <h2>Comments</h2>
                             <br/>
                             <Comments postId = {postId}/>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 
