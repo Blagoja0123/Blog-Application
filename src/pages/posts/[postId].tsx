@@ -28,15 +28,14 @@ export const SinglePost = () =>{
                 <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
                 <div>
                     <br/>
-                    <img className="h-fit" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexternal-preview.redd.it%2Fyi591FUlVsJEKg9Q6wKqWLHdFQ-PPzAsQU5Tveby3kA.jpg%3Fauto%3Dwebp%26s%3D79f70bdaffc909822029c86be956240d99feb875&f=1&nofb=1&ipt=86084f0b0d50316fe29bda0d259d89cc96548076da403bebebdf4ab61c736844&ipo=images"></img>
+                    <img className="h-fit" src={data?.img} alt='No image'></img>
                     <br/>
                     <p>{data?.body}</p>
                     <br/>
                     <p>Posted: {date.toDateString()}</p>
-                    {/* add author through new relation */}
                     <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
-                    <div className=" h-80 overflow-y-scroll overflow-x-hidden">
-                        {/* <div>   
+                    <div className=" h-80 overflow-y-scroll overflow-x-hidden mt-2 scroll-p-4">
+                        <div>   
                             <br/>
                             <p>Leave a comment</p>
                             <MakeComment postId = {postId}/>
@@ -45,7 +44,7 @@ export const SinglePost = () =>{
                             <h2>Comments</h2>
                             <br/>
                             <Comments postId = {postId}/>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
                 
