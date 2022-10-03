@@ -9,18 +9,28 @@ export const Posts = () =>{
         return <p>Loading...</p>
     }
 
+    
     return (
-        <div className="flex flex-wrap w-3/4 mt-6">
+        <div className="flex flex-wrap w-3/4 mt-6 pt-4">
             {data?.map((post) => {
                 return (
-                    <article key={post.id} className=" w-1/3 h-72 border-zinc-300 rounded-2xl border items-center p-4 mx-6 my-4 text-center hover:bg-slate-900">
-                        <h1 className=" items-center ">{post.title}</h1>
-                        <br/>
-                        <Link href={`/posts/${post.id}`}>Read post</Link>
+                <Link href={`posts/${post.id}`}>
+                    <article key={post.id} className=" w-11/12 h-72 border-zinc-300  border items-start p-4 mx-6 my-4 hover:bg-slate-900 flex space-x-2 bg-white text-black bg-gradient-to-l from-white to-black cursor-pointer">
+                        
+                            <img src={post.img} alt='no image' className="w-1/3 h-full rounded-md overflow-hidden border-black border-2"/>
+                            <div>
+                                <h1 className="text-5xl">{post.title}</h1>
+                                <br/>
+                                <p>{post.body}</p>
+                                <div className=" text-end align-bottom h-16 justify-end pt-32">
+                                    <p>Posted: {post.createdAt.toDateString()}</p>
+                                </div>
+                            </div>
+                        
                     </article>
+                </Link>
                 )
             })}
-            <NewPost/>
         </div>
     )
 }  

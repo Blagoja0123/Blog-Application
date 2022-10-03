@@ -69,13 +69,12 @@ export const userRouter = createRouter()
                     },
                 })
                 console.log(`yasss ${user.email}`);
-                await sendLoginEmail({
+                const test = await sendLoginEmail({
                     token: encode(`${token.id}:${user.email}`),
                     url: baseUrl,
                     email: user.email,
                 })
-
-                return true;
+                return test;
             }else{
                 throw new trpc.TRPCError({
                     code: 'FORBIDDEN',

@@ -5,13 +5,13 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"
 export const NewPost = () =>{
     return (
         <>
-            <div className="flex w-1/3 h-72 border-zinc-300 rounded-2xl border items-center p-4 mx-6 my-4 text-center hover:bg-slate-900 justify-center">
-                <div className=" top-1/2 left-1/2">
-                    <Link href="/posts/new">
-                        <FontAwesomeIcon icon={faPlus} style={{fontSize: 100}}/>
-                    </Link>
-                </div>
-            </div>
+            <Link href="/posts/new">
+                <button className='fixed z-90 bottom-10 right-8  w-20 h-20 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:drop-shadow-2xl hover:animate-bounce duration-300 border-white border'>
+                        
+                            <FontAwesomeIcon icon={faPlus} style={{fontSize: 25}}/>
+                        
+                </button>
+            </Link>
         </>
     )
 }

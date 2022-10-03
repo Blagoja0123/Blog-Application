@@ -5,6 +5,7 @@ import { CreateUserInput } from "../backend/schema/user.schema";
 import { trpc } from "../utils/trpc";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { NavBar } from "../components/NavBar";
 
 
 const LoginForm = dynamic(()=>import('../components/LoginForm'), {
@@ -30,9 +31,10 @@ export const Login = () =>{
     
     return (
     <>
-       <div>
+        <NavBar/>
+        <div>
             <LoginForm/>
-       </div>
+        </div>
     </>
     )
 }

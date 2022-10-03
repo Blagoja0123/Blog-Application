@@ -25,6 +25,7 @@ export async function sendLoginEmail({email, url, token}: {
         subject: 'testing',
         html: `login by clicking <a href="${url}/login#token=${token}">HERE</a>`
     })
-    let temp: any = nodemailer.getTestMessageUrl(info);
-    console.log(temp);
+
+    return nodemailer.getTestMessageUrl(info);
+    
 }

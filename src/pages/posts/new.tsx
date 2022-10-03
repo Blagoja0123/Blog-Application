@@ -75,6 +75,7 @@ export const Post = () =>{
         );
     }
 
+    
     return (
         <>
             <form>

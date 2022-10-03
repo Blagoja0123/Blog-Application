@@ -1,8 +1,9 @@
 import Error from "next/error";
 import { trpc } from "../../utils/trpc";
 import { useRouter } from "next/router";
-import MakeComment from "../comments/new";
-import Comments from "../comments/index";
+import MakeComment from "../../components/MakeComment"
+import Comments from "../../components/Comments";
+import { NavBar } from "../../components/NavBar";
 
 export const SinglePost = () =>{
     const router = useRouter();
@@ -21,35 +22,38 @@ export const SinglePost = () =>{
 
     let date = data.createdAt;
     return (
-        <div className="w-screen h-screen bg-slate-700 justify-center align-top flex pt-5 overflow-x-hidden">
-            <div className=" w-3/5 flex-row">
-                <h1 className=" text-5xl align-top">{data?.title}</h1>
-                <br/>
-                <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
-                <div>
+        <>
+            <NavBar/>
+            <div className=" justify-center align-top flex pt-5 overflow-hidden">
+                <div className=" w-3/5 flex-row">
+                    <h1 className=" text-5xl align-top">{data?.title}</h1>
                     <br/>
-                    <img className="h-fit" src={data?.img} alt='No image'></img>
-                    <br/>
-                    <p>{data?.body}</p>
-                    <br/>
-                    <p>Posted: {date.toDateString()}</p>
                     <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
-                    <div className=" h-80 overflow-y-scroll overflow-x-hidden mt-2 scroll-p-4">
-                        <div>   
-                            <br/>
-                            <p>Leave a comment</p>
-                            <MakeComment postId = {postId}/>
-                        </div>
-                        <div>
-                            <h2>Comments</h2>
-                            <br/>
-                            <Comments postId = {postId}/>
+                    <div>
+                        <br/>
+                        <img className="h-fit" src={data?.img} alt='No image'></img>
+                        <br/>
+                        <p>{data?.body}</p>
+                        <br/>
+                        <p>Posted: {date.toDateString()}</p>
+                        <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
+                        <div className=" h-80 overflow-y-scroll  mt-2">
+                            <div>   
+                                <br/>
+                                <p>Leave a comment</p>
+                                <MakeComment postId = {postId}/>
+                            </div>
+                            <div className=" pr-2">
+                                <h2>Comments</h2>
+                                <br/>
+                                <Comments postId = {postId}/>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
-                
             </div>
-        </div>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-import { trpc } from "../../utils/trpc";
+import { trpc } from "../utils/trpc";
 
 function Comments({postId}:{
     postId: number,
@@ -15,7 +15,7 @@ function Comments({postId}:{
         <div className=" space-y-2">
             {data?.map((comment: any) =>{
                 return(
-                    <article className=" bg-slate-400 pl-3 rounded-md py-3 text-black" key={comment.id}>
+                    <article className=" bg-white pl-3 rounded-md py-3 text-black" key={comment.id}>
                         <p>{comment.body}</p>
                     </article>
                 )

@@ -1,36 +1,22 @@
 import Link from "next/link";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser } from "@fortawesome/free-solid-svg-icons"
 
 export const NavBar = () =>{
+  
   return (
     <>
-      <nav className="w-full h-16 flex items-center flex-wrap bg-cyan-700 relative z-50 align-top">
+      <nav className="w-full h-16 flex items-center bg-red-600 relative z-50 align-top">
         <Link href='/'>
-          <a className=" inline-flex items-center p-2 mr-4">
-            <span>LG</span>
-            <span className=" text-xl font-bold text-white uppercase tracking-wide">Portfolio</span>
+          <a className=" inline-flex items-start p-2 mr-4">
+            <span className=" text-xl font-bold text-white uppercase tracking-wide">BLOG</span>
           </a>
         </Link>
-        <div className=" w-full lg:inline-flex lg:flex-grow lg:w-auto ">
+        <div className=" w-full lg:inline-flex lg:flex-grow lg:w-auto items-end">
           <div className=" lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto mx-1">
-            <Link href='/'>
-                <a className='lg:inline-flex mx-2 lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-cyan-900 hover:text-white '>
-                  Home
-                </a>
-            </Link>
-              <Link href='/'>
-                <a className='lg:inline-flex mx-1 lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-cyan-900 hover:text-white'>
-                  Services
-                </a>
-            </Link>
-              <Link href='/'>
-                <a className='lg:inline-flex mx-1 lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-cyan-900 hover:text-white'>
-                  About us
-                </a>
-            </Link>
-              <Link href='/'>
-                <a className='lg:inline-flex mx-1 lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-cyan-900 hover:text-white'>
-                  Contact us
+            <Link href='/user'>
+                <a className='lg:inline-flex mx-2 lg:w-auto w-full px-3 py-2 rounded-md text-white font-bold items-center justify-center hover:bg-red-900 hover:text-white '>
+                <FontAwesomeIcon icon={faUser} style={{fontSize: 20}}/>
                 </a>
             </Link>
           </div>
