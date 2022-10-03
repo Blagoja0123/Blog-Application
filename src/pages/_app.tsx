@@ -10,6 +10,7 @@ import { withTRPC } from '@trpc/next';
 import { AppRouter } from '../backend/router/app.routes';
 import { UserContextProvider } from '../context/user.context'
 import "@fortawesome/fontawesome-svg-core/styles.css"
+import { baseUrl } from '../constants'
 
 
 
@@ -41,7 +42,7 @@ export default withTRPC<AppRouter>({
       loggerLink(),
       httpBatchLink({
         maxBatchSize: 10,
-        url: 'http://localhost:3000/api/trpc',
+        url: `${baseUrl}/api/trpc`,
       }),
     ]
 
