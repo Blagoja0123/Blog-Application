@@ -9,7 +9,7 @@ export const NavBar = () =>{
       <nav className="w-full h-16 flex items-center bg-red-600 relative z-50 align-top">
         <Link href='/'>
           <a className=" inline-flex items-start p-2 mr-4">
-            <span className=" text-xl font-bold text-white uppercase tracking-wide">BLOG</span>
+            <span className=" text-xl font-bold text-white uppercase tracking-wide">HeapOverflow</span>
           </a>
         </Link>
         <div className=" w-full lg:inline-flex lg:flex-grow lg:w-auto items-end">
