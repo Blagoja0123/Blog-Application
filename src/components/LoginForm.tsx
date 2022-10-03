@@ -67,7 +67,7 @@ export const LoginForm = () =>{
                     </div>
                 </div>
                 </form>
-                <span className=" text-lg">Don't have an account? <span className=" text-blue-900"><Link href='/register'>Register</Link></span></span>
+                <span className=" text-lg">Don't have an account? <span className=" text-blue-900"><Link href="/register">Register</Link></span></span>
             </div>
         </div>
     </>
