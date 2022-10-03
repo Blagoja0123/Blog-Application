@@ -15,7 +15,7 @@ const productInput = {
 
 export const Post = () =>{
     const [inputs, setInputs] = useState(productInput);
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState<any>(null);
     const router = useRouter();
     const storage = getStorage();
     const storageRef = ref(storage, 'images/rivers.jpg');
@@ -75,7 +75,6 @@ export const Post = () =>{
         );
     }
 
-    
     return (
         <>
             <form>
@@ -83,7 +82,8 @@ export const Post = () =>{
                 <h1>Create Post</h1>
                 <input name="title" type="text" placeholder="Title" onChange={handleChange}></input>
                 <br/>
-                <input type='file' id="file" onChange={(e) => setFile(e.target.files[0])}/>
+                <input type='file' id="file" onChange={(e) => setFile( e.target.files instanceof FileList
+              ? (e.target.files[0]) : 'handle exception')}/>
                 <br/>
                 <textarea placeholder="Body" name="body" onChange={handleChange}></textarea>
                 <br/>
