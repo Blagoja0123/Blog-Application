@@ -74,7 +74,8 @@ export const userRouter = createRouter()
                     url: baseUrl,
                     email: user.email,
                 })
-                return test;
+                const val = true;
+                return {test, val};
             }else{
                 throw new trpc.TRPCError({
                     code: 'FORBIDDEN',

@@ -53,7 +53,7 @@ export const LoginForm = () =>{
             <div className=" bg-gray-500 p-12 rounded-xl mt-36 w-1/3 h-fit flex-row items-center content-center text-center">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {error && error.message}
-                    {success && <Link href={data || ''}>check email</Link>}
+                    {success && <Link href={data?.test || ''}>check email</Link>}
                 <h1 className=" text-center font-bold text-3xl">Login</h1>
                 <br/>
                 <div className=" container justify-center ">

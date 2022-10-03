@@ -1,5 +1,6 @@
 
 import * as trpc from '@trpc/server'
+import { z } from 'zod';
 import { createRouter } from '../createRouter'
 import { createPostSchema, createSinglePostSchema } from '../schema/post.schema'
 
@@ -16,7 +17,7 @@ export const postRouter = createRouter()
                 })
             }
 
-            const post = await ctx.prisma.post.create({
+            const post: any = await ctx.prisma.post.create({
                 data: {
                     ...input,
                     user: {
@@ -47,5 +48,27 @@ export const postRouter = createRouter()
             })
 
             return post;
+        }
+    })
+    .query('user-posts', {
+        input: z.object({
+            userId: z.number(),
+        }),
+        async resolve({ctx, input}){
+
+            const {userId} = input;
+            try {
+                const posts = await ctx.prisma.post.findMany({
+                    where:{
+                        userId,
+                    },
+                })
+                return posts;
+
+            } catch (error) {
+
+                return null;
+            }
+
         }
     })
