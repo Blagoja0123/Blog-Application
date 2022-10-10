@@ -25,9 +25,9 @@ export const Register = () =>{
     <body>
         <NavBar/>
         <div className=" flex items-center justify-center align-middle pt-16">
-            <div className=" bg-gray-500 p-12 rounded-xl mb-36 pt-16 w-1/3 h-fit flex-row items-center content-center text-center">
+            <div className=" bg-zinc-700 p-12 rounded-xl mb-36 pt-16 w-fit h-fit flex-row items-center content-center text-center">
                 <form onSubmit={handleSubmit(onSubmit)}>{error && error.message}
-                    <h1 className=" text-center font-bold text-3xl">Register</h1>
+                    <h1 className=" text-center font-bold text-3xl text-white">Register</h1>
                     <br/>
                     <div className=" container justify-center ">
                         <div className=" flex-row space-y-3">
@@ -37,12 +37,12 @@ export const Register = () =>{
                             <br/>
                             <input type='text' placeholder="password" {...register('password')} className=" bg-white placeholder-black rounded-md pr-16 pl-2 py-4 text-left text-black w-full"/>
                             <br/>
-                            <button type='submit' className=" bg-red-600 rounded-md px-12 py-4 flex item text-xl w-full hover:bg-red-900">Register</button>
+                            <button type='submit' className=" bg-zinc-800 rounded-md px-40 py-4 flex item text-xl w-full hover:bg-zinc-900 text-white">Register</button>
                             <br/>
                         </div>
                     </div>
                 </form>
-                <span className=" text-lg">Already have an account? <span className=" text-blue-900"><Link href='/login'>Login</Link></span></span>
+                <span className=" text-lg text-white">Already have an account? <span className=" text-sky-700"><Link href='/login'>Login</Link></span></span>
             </div>
         </div>
     </body>    

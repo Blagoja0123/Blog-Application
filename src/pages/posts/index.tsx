@@ -1,38 +1,60 @@
 import Link from "next/link";
+import Footer from "../../components/Footer";
+import { NavBar } from "../../components/NavBar";
 import NewPost from "../../components/NewPost";
 import { trpc } from "../../utils/trpc";
 
-export const Posts = () =>{
-    const {data, isLoading} = trpc.useQuery(['posts.all-posts'])
+export const Posts = () => {
+    const { data, isLoading } = trpc.useQuery(['posts.all-posts'])
 
-    if(isLoading){
-        return <p>Loading...</p>
+    const loader = () => {
+        return (
+            <>
+                <div className="flex justify-center items-center">
+                    <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </>
+        )
     }
 
-    
+    if (isLoading) {
+        loader();
+    }
+
+
+
+
     return (
-        <div className="flex flex-wrap w-3/4 mt-6 pt-4">
-            {data?.map((post) => {
-                return (
-                <Link href={`posts/${post.id}`} key={post.id}>
-                    <article key={post.id} className=" w-11/12 h-72 border-zinc-300  border items-start p-4 mx-6 my-4 hover:bg-slate-900 flex space-x-2 bg-white text-black bg-gradient-to-l from-white to-black cursor-pointer">
-                        
-                            <img src={post.img} alt='no image' className="w-1/3 h-full rounded-md overflow-hidden border-black border-2"/>
-                            <div>
-                                <h1 className="text-5xl">{post.title}</h1>
-                                <br/>
-                                <p>{post.body}</p>
-                                <div className=" text-end align-bottom h-16 justify-end pt-32">
-                                    <p>Posted: {post.createdAt.toDateString()}</p>
-                                </div>
-                            </div>
-                        
-                    </article>
-                </Link>
-                )
-            })}
-        </div>
+        <>
+            <NavBar />
+            <div className=" flex w-full justify-center">
+
+                <div className="flex h-full w-11/12 flex-wrap pt-4">
+                    {data?.map((post) => {
+                        return (
+                            <>
+                                <article key={post.id} className="flex w-full h-fit mx-12 p-2 my-6 items-baseline text-white">
+                                    <div className="flex space-x-3">
+                                        <Link href={`posts/${post.id}`} className="cursor-pointer">
+                                            <img src={post.img} className=" w-1/4 cursor-pointer rounded-lg h-3/4" />
+                                        </Link>
+                                        <Link href={`posts/${post.id}`} className="w-full cursor-pointer hover:text-blue-600">
+                                            <h1 className=" text-4xl cursor-pointer">{post.title}</h1>
+                                        </Link>
+                                    </div>
+                                </article>
+
+                                <div className="w-11/12 bg-white h-px"></div>
+                            </>
+                        )
+                    })}
+                </div>
+            </div>
+            <Footer />
+        </>
     )
-}  
+}
 
 export default Posts;

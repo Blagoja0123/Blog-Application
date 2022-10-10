@@ -32,7 +32,6 @@ export const LoginForm = () =>{
     const {mutate, data, error} = trpc.useMutation(['users.login-otp'], {
         onSuccess: ()=>{
             setSuccess(true);
-            console.log(data)
         }
     })
 
@@ -50,24 +49,24 @@ export const LoginForm = () =>{
     return (
     <>
         <div className=" flex items-center justify-center">
-            <div className=" bg-gray-500 p-12 rounded-xl mt-36 w-1/3 h-fit flex-row items-center content-center text-center">
-                <form onSubmit={handleSubmit(onSubmit)}>
+            <div className=" bg-zinc-700 p-12 rounded-xl mt-36 w-fit h-fit items-center content-center text-center shadow-lg">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
                     {error && error.message}
                     {success && <Link href={data?.test || ''}>check email</Link>}
-                <h1 className=" text-center font-bold text-3xl">Login</h1>
+                <h1 className=" text-center font-bold text-3xl text-white">Login</h1>
                 <br/>
-                <div className=" container justify-center ">
-                    <div className=" flex-row space-y-3">
+                <div className=" justify-center">
+                    <div className=" space-y-3">
                         <input type='text' placeholder="email" {...register('email')} className=" bg-white placeholder-black rounded-md pr-16 pl-2 py-4 text-left text-black w-full"/>
                         <br/>
                         <input type='text' placeholder="password" {...register('password')} className=" bg-white placeholder-black rounded-md pr-16 pl-2 py-4 text-left text-black w-full"/>
                         <br/>
-                        <button type='submit' className=" bg-red-600 rounded-md px-12 py-4 flex item text-xl w-full hover:bg-red-900">Login</button>
+                            <button type='submit' className=" bg-zinc-800 rounded-md px-40 py-4 flex item text-xl w-full hover:bg-zinc-900 text-white">Login</button>
                         <br/>
                     </div>
                 </div>
                 </form>
-                <span className=" text-lg">New here? <span className=" text-blue-900"><Link href="/register">Register</Link></span></span>
+                <span className=" text-lg text-white">New here? <span className=" text-sky-700"><Link href="/register">Register</Link></span></span>
             </div>
         </div>
     </>

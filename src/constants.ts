@@ -1,3 +1,3 @@
-export const baseUrl = 'https://test-next-red-ten.vercel.app'
+export const baseUrl = 'http://localhost:3000'
 
 export const url = `${baseUrl}/api/trpc`

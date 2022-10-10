@@ -6,6 +6,7 @@ import { trpc } from "../utils/trpc";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { NavBar } from "../components/NavBar";
+import { Loader } from "../components/Loader";
 
 
 const LoginForm = dynamic(()=>import('../components/LoginForm'), {
@@ -19,7 +20,7 @@ const VerifyToken = ({hash}:{hash: string})=>{
         }])
 
         if(isLoading){
-            return <p>Verifying...</p>
+            return <Loader/>
         }
 
         router.push(data?.redirect.includes('login') ? '/': data?.redirect || '/')

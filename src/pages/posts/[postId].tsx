@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import MakeComment from "../../components/MakeComment"
 import Comments from "../../components/Comments";
 import { NavBar } from "../../components/NavBar";
+import { Loader } from "../../components/Loader";
 
 export const SinglePost = () =>{
     const router = useRouter();
@@ -13,7 +14,7 @@ export const SinglePost = () =>{
     const {data, isLoading} = trpc.useQuery(['posts.single-post', {postId}])
 
     if(isLoading){
-        return <p>Loading...</p>
+        return <Loader/>
     }
 
     if(!data){
@@ -26,8 +27,9 @@ export const SinglePost = () =>{
             <NavBar/>
             <div className=" justify-center align-top flex pt-5 overflow-hidden">
                 <div className=" w-3/5 flex-row">
-                    <h1 className=" text-5xl align-top">{data?.title}</h1>
+                    <h1 className=" text-5xl align-top text-white">{data?.title}</h1>
                     <br/>
+                    <p className="text-white">{date.toDateString()}</p>
                     <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
                     <div>
                         <br/>
@@ -35,16 +37,16 @@ export const SinglePost = () =>{
                         <br/>
                         <p>{data?.body}</p>
                         <br/>
-                        <p>Posted: {date.toDateString()}</p>
+                        
                         <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
-                        <div className=" h-80 overflow-y-scroll  mt-2">
+                        <div className=" h-80 overflow-y-scroll  mt-2 text-white">
                             <div>   
                                 <br/>
-                                <p>Leave a comment</p>
+                                <p>Остави коментар</p>
                                 <MakeComment postId = {postId}/>
                             </div>
                             <div className=" pr-2">
-                                <h2>Comments</h2>
+                                <h2>Коментари</h2>
                                 <br/>
                                 <Comments postId = {postId}/>
                             </div>

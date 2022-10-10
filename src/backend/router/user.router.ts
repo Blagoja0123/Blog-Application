@@ -8,12 +8,14 @@ import { decode, encode } from '../utils/base64';
 import { signJwt } from '../utils/jwt';
 import { serialize } from 'cookie';
 
+
+
 export const userRouter = createRouter()
     .mutation('register', {
         input: createUserSchema,
-        async resolve({ctx, input}){
-            const {username, password, email} = input;
-            
+        async resolve({ ctx, input }) {
+            const { username, password, email } = input;
+
             try {
                 const user = await ctx.prisma.user.create({
                     data: {
@@ -24,8 +26,8 @@ export const userRouter = createRouter()
                 })
                 return user
             } catch (e) {
-                if(e instanceof PrismaClientKnownRequestError){
-                    if(e.code === 'P2002'){
+                if (e instanceof PrismaClientKnownRequestError) {
+                    if (e.code === 'P2002') {
                         throw new trpc.TRPCError({
                             code: 'CONFLICT',
                             message: 'user already exists'
@@ -42,22 +44,22 @@ export const userRouter = createRouter()
     })
     .mutation('login-otp', {
         input: requestOtpSchema,
-        async resolve({input, ctx}){
-            const {email, password, redirect} = input;  
+        async resolve({ input, ctx }) {
+            const { email, password, redirect } = input;
             const user = await ctx.prisma.user.findUnique({
                 where: {
                     email,
                 },
             })
 
-            if(!user){
+            if (!user) {
                 throw new trpc.TRPCError({
                     code: 'NOT_FOUND',
                     message: 'User not found',
                 })
             }
 
-            if(password === user.password){
+            if (password === user.password) {
                 const token = await ctx.prisma.loginToken.create({
                     data: {
                         redirect,
@@ -68,15 +70,14 @@ export const userRouter = createRouter()
                         },
                     },
                 })
-                console.log(`yasss ${user.email}`);
                 const test = await sendLoginEmail({
-                    token: encode(`${token.id}:${user.email}`),
+                    token: encode(`${token.id}:${user.email}:${user.username}`),
                     url: baseUrl,
                     email: user.email,
                 })
                 const val = true;
-                return {test, val};
-            }else{
+                return { test, val };
+            } else {
                 throw new trpc.TRPCError({
                     code: 'FORBIDDEN',
                     message: 'Incorrect password'
@@ -87,24 +88,27 @@ export const userRouter = createRouter()
     })
     .query('verify-otp', {
         input: verifyOtpSchema,
-        async resolve({input, ctx}){
+        async resolve({ input, ctx }) {
             const decoded = decode(input.hash).split(':');
+            console.log(decoded);
             const email = decoded[1];
+            const username = decoded[2];
             const id = parseInt(decoded[0]);
 
             const token = await ctx.prisma.loginToken.findFirst({
-                where:{
+                where: {
                     id,
                     user: {
                         email,
+                        username,
                     },
                 },
-                include:{
+                include: {
                     user: true,
                 },
             })
 
-            if(!token){
+            if (!token) {
                 throw new trpc.TRPCError({
                     code: 'FORBIDDEN',
                     message: 'invalid token',
@@ -113,18 +117,19 @@ export const userRouter = createRouter()
 
             const jwt = signJwt({
                 email: token.user.email,
+                username: token.user.username,
                 id: token.user.id
             })
 
-            ctx.res.setHeader('Set-Cookie', serialize('token', jwt, {path: '/'}))
+            ctx.res.setHeader('Set-Cookie', serialize('token', jwt, { path: '/' }))
 
-            return{
+            return {
                 redirect: token.redirect,
             }
-        } 
+        }
     })
     .query('me', {
         resolve({ ctx }) {
-          return ctx.user;
+            return ctx.user;
         },
     });

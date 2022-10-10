@@ -1,12 +1,23 @@
 
+export function Header(){
 
-export const Header = () =>{
+    const source: string = "https://firebasestorage.googleapis.com/v0/b/blog-app-bf9a8.appspot.com/o/1664825670075Untitled.png?alt=media&token=41a42ee5-30e3-4504-b111-b9bc1bdb057c"
+
+
     return (
-        <div className="w-screen flex justify-center overflow-hidden">
-            <div className="w-screen items-center flex justify-center align-top h-96 rounded-lg border-white">
-                <h1 className="text-white absolute font-semibold text-7xl align-text-top pt-6">BLOGS</h1>
-                <img className="w-full h-2/3 border-white" src = 'https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg' alt="No image"/>
+        <>
+            <div className=" py-16 pl-12 flex text-white ">
+                
+                    <img src={source} alt="no image" className="rounded-lg"/>
+                    <div className=" pl-2">
+                        <h1 className=" text-5xl space-y-3 mb-2">Призма релации</h1>
+                        <span>Mon Oct 03 2022</span>
+                    </div>
+                
             </div>
-        </div>
+            <div className="w-full rounded-full h-px bg-white justify-center"></div>
+        </>
     )
 }
+
+export default Header;

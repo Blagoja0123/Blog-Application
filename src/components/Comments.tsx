@@ -1,4 +1,5 @@
 import { trpc } from "../utils/trpc";
+import Loader from "./Loader";
 
 function Comments({postId}:{
     postId: number,
@@ -8,7 +9,7 @@ function Comments({postId}:{
     }])
 
     if(isLoading){
-        return <p>Loading...</p>
+        return <Loader/>
     }
 
     return (

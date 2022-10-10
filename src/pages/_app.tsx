@@ -11,6 +11,7 @@ import { AppRouter } from '../backend/router/app.routes';
 import { UserContextProvider } from '../context/user.context'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { baseUrl } from '../constants'
+import { Loader } from '../components/Loader'
 
 
 
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { data, error, isLoading } = trpc.useQuery(['users.me'])
 
   if (isLoading) {
-    return <>Loading user...</>
+    return <Loader/>
   }
 
   return (

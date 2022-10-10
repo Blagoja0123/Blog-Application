@@ -1,38 +1,44 @@
 import { trpc } from "../utils/trpc"
 import Link from "next/link"
-function UserPosts({userId}:{
+import Loader from "./Loader"
+function UserPosts({ userId }: {
     userId: any,
-}){
+}) {
 
-    const {data, isLoading} = trpc.useQuery(['posts.user-posts', {
+    const { data, isLoading } = trpc.useQuery(['posts.user-posts', {
         userId,
     }])
 
-    if(isLoading){
-        return <p>Loading...</p>
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
         <>
-            {data?.map((post) => {
-                return (
-                <Link href={`posts/${post.id}`} key={post.id}>
-                    <article key={post.id} className=" w-11/12 h-72 border-zinc-300  border items-start p-4 mx-6 my-4 hover:bg-slate-900 flex space-x-2 bg-white text-black bg-gradient-to-l from-white to-black cursor-pointer">
-                        
-                            <img src={post.img} alt='no image' className="w-1/3 h-full rounded-md overflow-hidden border-black border-2"/>
-                            <div>
-                                <h1 className="text-5xl">{post.title}</h1>
-                                <br/>
-                                <p>{post.body}</p>
-                                <div className=" text-end align-bottom h-16 justify-end pt-32">
-                                    <p>Posted: {post.createdAt.toDateString()}</p>
+            <div className="flex h-full w-full flex-wrap mt-6 pt-4 justify-self-auto mb-24">
+                {data?.map((post) => {
+                    return (
+                        <>
+                            <article key={post.id} className="flex w-1/4 h-96 mx-12 p-2 my-6 items-baseline text-white border-b">
+                                <div>
+                                    <Link href={`posts/${post.id}`} className="cursor-pointer">
+                                        <img src={post.img} className="cursor-pointer rounded-lg h-3/4" />
+                                    </Link>
+                                    <br />
+                                    <Link href={`posts/${post.id}`} className=" cursor-pointer hover:text-blue-600">
+                                        <h1 className="text-4xl cursor-pointer">{post.title}</h1>
+                                    </Link>
+
+
+
                                 </div>
-                            </div>
-                        
-                    </article>
-                </Link>
-                )
-            })}
+
+                            </article>
+                        </>
+                    )
+                })}
+
+            </div>
         </>
     )
 }
