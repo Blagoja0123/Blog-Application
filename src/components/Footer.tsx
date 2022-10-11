@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Footer = () => {
     return (
         <>
-            <footer className='w-full h-96 bg-black border-t-2 px-16 py-8 text-white flex space-x-40 justify-center'>
+            <footer className='w-screen overflow-x-hidden h-96 bg-black border-t-2 px-16 py-8 text-white flex space-x-40 justify-center'>
                 <FontAwesomeIcon icon={["fab", "stack-overflow"]} color="white" style={{ fontSize: 100 }} />
                 <section>
                     <span className=' font-bold'>HEAP OVERFLOW</span>

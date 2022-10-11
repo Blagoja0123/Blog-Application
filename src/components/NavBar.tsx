@@ -9,7 +9,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="w-full h-16 flex items-center bg-black relative z-50 align-top border-white">
+      <nav className="w-screen overflow-x-hidden   h-16 flex items-center bg-black relative z-50 align-top border-white px-4">
         <Link href='/'>
           <a className=" inline-flex items-start p-2 mr-4 pl-4">
             <FontAwesomeIcon icon={["fab", "stack-overflow"]} color="white" style={{ fontSize: 30 }} />
