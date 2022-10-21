@@ -51,8 +51,8 @@ export const LoginForm = () => {
             <div className=" flex items-center justify-center">
                 <div className=" bg-zinc-700 p-12 rounded-xl mt-36 w-fit h-fit items-center content-center text-center shadow-lg">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-                        {error && error.message}
-                        {success && <Link href={data?.test || ''}>check email</Link>}
+                        {error && <span>Има проблем со серверот, обидете се повторно</span>}
+                        {success && <Link href={data?.test || ''}>Проветере мејл</Link>}
                         <h1 className=" text-center font-bold text-3xl text-white">Најава</h1>
                         <br />
                         <div className=" justify-center">

@@ -26,7 +26,7 @@ export const Register = () => {
                 <NavBar />
                 <div className=" flex items-center justify-center align-middle pt-16">
                     <div className=" bg-zinc-700 p-12 rounded-xl mb-36 pt-16 w-fit h-fit flex-row items-center content-center text-center">
-                        <form onSubmit={handleSubmit(onSubmit)}>{error && error.message}
+                        <form onSubmit={handleSubmit(onSubmit)}>{error && <span>Има проблем со серверот, обидете се повторно</span>}
                             <h1 className=" text-center font-bold text-3xl text-white">Регистрација</h1>
                             <br />
                             <div className=" container justify-center ">
