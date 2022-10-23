@@ -12,3 +12,4 @@ Blog aplikacija
 - tRPC 
 - Prisma ORM
 - Railway.app MySQL databaza
+- firebase storage za fajlovi
