@@ -5,6 +5,7 @@ import MakeComment from "../../components/MakeComment"
 import Comments from "../../components/Comments";
 import { NavBar } from "../../components/NavBar";
 import { Loader } from "../../components/Loader";
+import Footer from "../../components/Footer";
 
 export const SinglePost = () =>{
     const router = useRouter();
@@ -35,7 +36,7 @@ export const SinglePost = () =>{
                         <br/>
                         <img className="h-fit" src={data?.img} alt='No image'></img>
                         <br/>
-                        <p>{data?.body}</p>
+                        <p className="text-white text-xl">{data?.body}</p>
                         <br/>
                         
                         <div className="w-full h-1 bg-slate-50 rounded-sm"></div>
@@ -55,6 +56,7 @@ export const SinglePost = () =>{
                     
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

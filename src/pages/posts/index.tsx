@@ -38,7 +38,9 @@ export const Posts = () => {
                                 <article key={post.id} className="flex w-full h-fit mx-12 p-2 my-6 items-baseline text-white">
                                     <div className="flex space-x-3">
                                         <Link href={`posts/${post.id}`} className="cursor-pointer">
-                                            <img src={post.img} className=" w-1/4 cursor-pointer rounded-lg h-3/4" />
+                                            <div className=" w-1/3 h-5/6 cursor-pointer">
+                                                <img src={post.img} className=" w-full h-full cursor-pointer rounded-lg" />
+                                            </div>
                                         </Link>
                                         <Link href={`posts/${post.id}`} className="w-full cursor-pointer hover:text-blue-600">
                                             <h1 className=" text-4xl cursor-pointer">{post.title}</h1>

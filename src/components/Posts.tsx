@@ -29,14 +29,17 @@ export const Posts = () =>{
             {data?.map((post) => {
                 return (
                     <>
-                    <article key={post.id} className="flex w-1/4 h-96 mx-12 p-2 my-6 items-baseline text-white border-b">
+                    <article key={post.id} className="flex justify-center w-1/4 h-96 mx-12 p-2 my-6 items-baseline text-white border-b">
                             <div>
                                 <Link href={`posts/${post.id}`} className="cursor-pointer">
-                                    <img src={post.img} className="cursor-pointer rounded-lg h-3/4"/>
+                                    {/* image container */}
+                                    <div className=" w-80 h-48">
+                                        <img src={post.img} className="cursor-pointer rounded-lg w-full h-full"/>
+                                    </div>
                                 </Link>
                                 <br/>
                                 <Link href={`posts/${post.id}`} className=" cursor-pointer hover:text-blue-600">
-                                    <h1 className="text-4xl cursor-pointer">{post.title}</h1>
+                                    <h1 className="text-4xl cursor-pointer flex flex-wrap ">{post.title}</h1>
                                 </Link>
                                
                                 

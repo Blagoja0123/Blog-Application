@@ -1,36 +1,41 @@
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 export const Footer = () => {
     return (
         <>
             <footer className='w-screen overflow-x-hidden h-96 bg-black border-t-2 px-16 py-8 text-white flex space-x-40 justify-center'>
-                <FontAwesomeIcon icon={["fab", "stack-overflow"]} color="white" style={{ fontSize: 100 }} />
+                <div className="cursor-pointer">
+                    <Link href={'/'}>
+                        <FontAwesomeIcon icon={["fab", "stack-overflow"]} color="white" style={{ fontSize: 100 }}/>
+                    </Link>
+                </div>
                 <section>
                     <span className=' font-bold'>HEAP OVERFLOW</span>
                     <ul>
-                        <li>Прашања</li>
-                        <li>Помош</li>
+                        <li className=" cursor-pointer">Прашања</li>
+                        <li className=" cursor-pointer">Помош</li>
                     </ul>
                 </section>
                 <section>
                     <span className=' font-bold'>Производи</span>
                     <ul>
-                        <li>Тимови</li>
-                        <li>Рекламирање</li>
-                        <li>Колективи</li>
-                        <li>Талент</li>
+                        <li className=" cursor-pointer">Тимови</li>
+                        <li className=" cursor-pointer">Рекламирање</li>
+                        <li className=" cursor-pointer">Колективи</li>
+                        <li className=" cursor-pointer">Талент</li>
                     </ul>
                 </section>
                 <section>
-                    <span className=' font-bold'>Компанија</span>
+                    <span className=' font-bold cursor-pointer'>Компанија</span>
                     <ul>
-                        <li>За нас</li>
-                        <li>Вработи се овде</li>
-                        <li>Приватност</li>
-                        <li>Сервис</li>
-                        <li>Контактирај не</li>
-                        <li>Колачиња</li>
+                        <li className=" cursor-pointer">За нас</li>
+                        <li className=" cursor-pointer">Вработи се овде</li>
+                        <li className=" cursor-pointer">Приватност</li>
+                        <li className=" cursor-pointer">Сервис</li>
+                        <li className=" cursor-pointer">Контактирај не</li>
+                        <li className=" cursor-pointer">Колачиња</li>
                     </ul>
                 </section>
                 <section>
