@@ -83,14 +83,14 @@ export const Post = () => {
             <div className=" justify-center align-top flex pt-5 overflow-hidden">
                 <form className=" w-3/5 flex-row text-white space-y-2" onSubmit={handleClick}>
                     {error && error.message}
-                    <h1 className=" text-5xl text-center text-white m-2">Создади објава</h1>
+                    <h1 className=" text-5xl text-center text-white m-2">Create a post</h1>
                     <input className=" bg-transparent border-none w-11/12 h-16 text-5xl px-3" name="title" type="text" placeholder="Наслов" onChange={handleChange}></input>
                     <br />
                     <input type='file' id="file"/>
                     <br />
                     <textarea className=" bg-transparent w-full h-96 p-2 text-lg border-transparent" placeholder="Содржина" name="body" onChange={handleChange}></textarea>
                     <br />
-                    <button className=" bg-zinc-800 p-4 rounded-xl hover:bg-zinc-900">Создади објава</button>
+                    <button className=" bg-zinc-800 p-4 rounded-xl hover:bg-zinc-900">Post</button>
                 </form>
             </div>
         </>

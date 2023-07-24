@@ -51,9 +51,9 @@ export const LoginForm = () => {
             <div className=" flex items-center justify-center">
                 <div className=" bg-zinc-700 p-12 rounded-xl mt-36 w-fit h-fit items-center content-center text-center shadow-lg">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-                        {error && <span>Има проблем со серверот, обидете се повторно</span>}
-                        {success && <Link href={data?.test || ''}>Проветере мејл</Link>}
-                        <h1 className=" text-center font-bold text-3xl text-white">Најава</h1>
+                        {error && <span>There was a problem with the server, try again</span>}
+                        {success && <Link href={data?.test || ''}>Check your mail</Link>}
+                        <h1 className=" text-center font-bold text-3xl text-white">Log in</h1>
                         <br />
                         <div className=" justify-center">
                             <div className=" space-y-3">
@@ -61,12 +61,12 @@ export const LoginForm = () => {
                                 <br />
                                 <input type='text' placeholder="password" {...register('password')} className=" bg-white placeholder-black rounded-md pr-16 pl-2 py-4 text-left text-black w-full" />
                                 <br />
-                                <button type='submit' className=" bg-zinc-800 rounded-md px-40 py-4 flex item text-xl w-full hover:bg-zinc-900 text-white">Најава</button>
+                                <button type='submit' className=" bg-zinc-800 rounded-md px-40 py-4 flex item text-xl w-full hover:bg-zinc-900 text-white">Log in</button>
                                 <br />
                             </div>
                         </div>
                     </form>
-                    <span className=" text-lg text-white">Нови на оваа страница? <span className=" text-sky-700"><Link href="/register">Регистрирајте се</Link></span></span>
+                    <span className=" text-lg text-white">New here? <span className=" text-sky-700"><Link href="/register">Register</Link></span></span>
                 </div>
             </div>
         </>

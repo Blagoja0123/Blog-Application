@@ -43,11 +43,11 @@ export const SinglePost = () =>{
                         <div className=" h-80 overflow-y-scroll  mt-2 text-white">
                             <div>   
                                 <br/>
-                                <p>Остави коментар</p>
+                                <p>Leave a comment</p>
                                 <MakeComment postId = {postId}/>
                             </div>
                             <div className=" pr-2">
-                                <h2>Коментари</h2>
+                                <h2>Comments</h2>
                                 <br/>
                                 <Comments postId = {postId}/>
                             </div>

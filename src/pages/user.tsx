@@ -23,10 +23,10 @@ export const User = () => {
         <>
             <NavBar />
             <div className="flex space-x-3 p-2">
-                <h1 className=" text-white text-4xl font-semibold mt-6 ml-6">Добредојде назад, {user?.username}!</h1>
-                <button onClick={logOut} className="mt-3 p-4 bg-zinc-800 hover:bg-zinc-900 rounded-lg text-white">Одјава</button>
+                <h1 className=" text-white text-4xl font-semibold mt-6 ml-6">Welcome back, {user?.username}!</h1>
+                <button onClick={logOut} className="mt-3 p-4 bg-zinc-800 hover:bg-zinc-900 rounded-lg text-white">Log out</button>
             </div>
-            <div className=" text-white text-4xl font-semibold mt-12 ml-6">Ваши објави</div>
+            <div className=" text-white text-4xl font-semibold mt-12 ml-6">Your posts</div>
             <UserPosts userId={user?.id} />
             <Footer />
         </>

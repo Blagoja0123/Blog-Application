@@ -14,28 +14,28 @@ export const Footer = () => {
                 <section>
                     <span className=' font-bold'>HEAP OVERFLOW</span>
                     <ul>
-                        <li className=" cursor-pointer">Прашања</li>
-                        <li className=" cursor-pointer">Помош</li>
+                        <li className=" cursor-pointer">Questions</li>
+                        <li className=" cursor-pointer">Help</li>
                     </ul>
                 </section>
                 <section>
-                    <span className=' font-bold'>Производи</span>
+                    <span className=' font-bold'>Products</span>
                     <ul>
-                        <li className=" cursor-pointer">Тимови</li>
-                        <li className=" cursor-pointer">Рекламирање</li>
-                        <li className=" cursor-pointer">Колективи</li>
-                        <li className=" cursor-pointer">Талент</li>
+                        <li className=" cursor-pointer">Teams</li>
+                        <li className=" cursor-pointer">Marketing</li>
+                        <li className=" cursor-pointer">Collectives</li>
+                        <li className=" cursor-pointer">Talent</li>
                     </ul>
                 </section>
                 <section>
-                    <span className=' font-bold cursor-pointer'>Компанија</span>
+                    <span className=' font-bold cursor-pointer'>Company</span>
                     <ul>
-                        <li className=" cursor-pointer">За нас</li>
-                        <li className=" cursor-pointer">Вработи се овде</li>
-                        <li className=" cursor-pointer">Приватност</li>
-                        <li className=" cursor-pointer">Сервис</li>
-                        <li className=" cursor-pointer">Контактирај не</li>
-                        <li className=" cursor-pointer">Колачиња</li>
+                        <li className=" cursor-pointer">About</li>
+                        <li className=" cursor-pointer">Work here</li>
+                        <li className=" cursor-pointer">Privacy</li>
+                        <li className=" cursor-pointer">Service</li>
+                        <li className=" cursor-pointer">COntact</li>
+                        <li className=" cursor-pointer">Cookies</li>
                     </ul>
                 </section>
                 <section>

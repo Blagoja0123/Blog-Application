@@ -20,7 +20,7 @@ export const NavBar = () => {
           <div className=" lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto mx-1">
             <Link href='/posts'>
               <a className='lg:inline-flex mx-2 lg:w-auto w-full px-3 py-2 rounded-md text-white font-bold items-center justify-center border-white hover:border hover:text-white '>
-                објави
+                posts
               </a>
             </Link>
           </div>
